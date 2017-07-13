@@ -8,14 +8,14 @@ import cleaning_module as cl
 
 def get_end_date_time(start, durn):
     stripped_time = time.strptime(start, '%d%b%Y %H%M') #returns tuple
-    start_date = datetime.datetime(stripped_time.tm_year,
+    start_date_time = datetime.datetime(stripped_time.tm_year,
                                    stripped_time.tm_mon,
                                    stripped_time.tm_mday,
                                    stripped_time.tm_hour,
                                    stripped_time.tm_min,
                                    stripped_time.tm_sec)
 
-    end_date_time = start_date + timedelta(hours=durn)
+    end_date_time = start_date_time + timedelta(hours=durn)
 
     end_date_time_stripped = time.strptime(str(end_date_time),'%Y-%m-%d %H:%M:%S')
 
