@@ -1,6 +1,6 @@
 import cleaning_module as cl
 import csv
-
+from datetime import timedelta
 
 csvFile = open('D:\mhcc_r9.csv')
 
@@ -28,10 +28,13 @@ for row in csvDReader:
     pax = cl.get_pax(row['Px'])
     dow_to_list = cl.get_days_from_dow(row['Remarks'])
     day_range = list(cl.group(dow_to_list))
+
     if bid_type == 'GEN_TIMEOFF':
         dates_from_wom = get_start_end_date_from_wom(row['Remarks'])
-        dates_from
-        date_to
+        date_from =
+        date_to =
+        time_from = 00:00
+        time_to = 00:00 + timedelta(hours=row['Durn'])
         for i in range(0, len(day_range)):
             day_from = day_range[i][0]
             day_to = day_range[i][1]

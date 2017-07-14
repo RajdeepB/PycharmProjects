@@ -7,7 +7,8 @@ from datetime import timedelta
 
 source_xml = ET.parse("D:/export_other_to_crew_bid_MHCC_20170626_080918_latchr.xml")
 
-
+#input :
+#output :
 def get_dates(s):
     regex = r"wom:?\D+(\d+)"
     matches = re.findall(regex,s)
@@ -41,8 +42,9 @@ def setMaxTimesRoster(n): # returns max times roster as string
         except ValueError:
             return str(1)
 
-
-def conv_d(d):# returns date in a dd/mm/yy format
+# input : '24-Jul-17' , '31JUL17 0955'
+# output : date in a dd/mm/yy format
+def conv_d(d):
    if d is not None:
         length = len((str(d).strip()))
         if length>=8 and length <=9:
@@ -97,7 +99,7 @@ def get_layoverData(tree): # returns layover ports present in the JCR JCB export
     return layovers
 
 
-def get_transitData(tree): # returns transit ports present in the JCR JCB export file in a list
+def get_transitData(tree): # returns transit ports present in the JCR JCB export file in a list; tree is the element tree created from xml file
     transits=[]
     for node in tree.iterfind(".//destinationdata/destinations"):
         destinationData = node.findall('destination')
